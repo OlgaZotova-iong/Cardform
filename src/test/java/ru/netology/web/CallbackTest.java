@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions; // импорт класса Assertions
 
 class CallbackTest {
     private WebDriver driver;
@@ -47,10 +48,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector(".button")).click();
         WebElement actualElement = driver.findElement(By.cssSelector("[data-test-id=order-success]"));
         String actualText = actualElement.getText().trim();
-        assertEquals( "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
-        assertTrue(actualElement.isDisplayed());
-
-
-
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
+        Assertions.assertTrue(actualElement.isDisplayed()); // Вызов через имя класса
     }
 }
