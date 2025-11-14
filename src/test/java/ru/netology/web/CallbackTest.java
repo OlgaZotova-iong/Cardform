@@ -11,8 +11,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Assertions; // импорт класса Assertions
 
@@ -30,6 +28,7 @@ class CallbackTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
+        options.addArguments("--remote-allow-origins=*"); // Разрешить удаленные подключения
         driver = new ChromeDriver(options);
         driver.get("http://localhost:9999");
     }
@@ -52,3 +51,4 @@ class CallbackTest {
         Assertions.assertTrue(actualElement.isDisplayed()); // Вызов через имя класса
     }
 }
+
